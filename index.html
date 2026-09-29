@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pixel Snake / 像素贪吃蛇：一个适合 GitHub Pages 的浏览器小游戏。" />
+    <meta name="theme-color" content="#0d1225" />
+    <title>PIXEL SNAKE / 像素贪吃蛇</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div>
+            <p class="eyebrow">ARCADE 001</p>
+            <h1>PIXEL SNAKE <span>/ 像素贪吃蛇</span></h1>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" id="soundToggle" type="button" aria-pressed="true" title="切换音效 / Toggle sound">♫ <span>音效 ON</span></button>
+          <button class="icon-button" id="languageToggle" type="button" aria-pressed="false" title="切换语言 / Toggle language">中 / EN</button>
+        </div>
+      </header>
+
+      <section class="game-layout" aria-label="Pixel Snake game">
+        <aside class="side-panel left-panel">
+          <div class="panel-label">PLAYER STATUS / 玩家状态</div>
+          <div class="stat-card highlight">
+            <span class="stat-label">SCORE / 分数</span>
+            <strong id="scoreValue">0000</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">HIGH SCORE / 最高分</span>
+            <strong id="highScoreValue">0000</strong>
+          </div>
+          <div class="stat-card compact-row">
+            <span class="stat-label">LEVEL / 等级</span>
+            <strong id="levelValue">01</strong>
+          </div>
+          <div class="stat-card compact-row">
+            <span class="stat-label">SPEED / 速度</span>
+            <strong id="speedValue">01</strong>
+          </div>
+          <div class="meter-block">
+            <div class="meter-heading"><span>NEXT LEVEL</span><span id="progressText">0 / 5</span></div>
+            <div class="meter"><span id="progressBar"></span></div>
+          </div>
+          <div class="tip-box">
+            <span class="tip-icon">!</span>
+            <p><b>TIP / 提示</b><br />每吃到一个像素食物，蛇会变长。等级越高，速度越快。</p>
+          </div>
+        </aside>
+
+        <section class="board-column">
+          <div class="board-frame">
+            <div class="board-head">
+              <span id="roundLabel">ROUND 01 / 回合 01</span>
+              <span class="live-indicator"><i></i><span id="stateLabel">READY / 准备</span></span>
+            </div>
+            <div class="canvas-wrap">
+              <canvas id="gameCanvas" width="640" height="640" aria-label="贪吃蛇游戏区域"></canvas>
+              <div class="game-overlay" id="gameOverlay">
+                <div class="overlay-card">
+                  <div class="overlay-badge">INSERT COIN / 开始游戏</div>
+                  <h2 id="overlayTitle">READY?</h2>
+                  <p id="overlayMessage">按下 START 开始你的像素冒险<br />Press START to begin your pixel run</p>
+                  <button class="primary-button" id="startButton" type="button">START GAME / 开始游戏</button>
+                </div>
+              </div>
+            </div>
+            <div class="board-foot">
+              <span>GRID 20 × 20</span>
+              <span id="obstacleCount">OBSTACLES 00</span>
+              <span>BUILD 1.0.0</span>
+            </div>
+          </div>
+          <div class="controls-row">
+            <button class="secondary-button" id="pauseButton" type="button">Ⅱ PAUSE / 暂停</button>
+            <button class="secondary-button" id="restartButton" type="button">↻ RESTART / 重开</button>
+          </div>
+        </section>
+
+        <aside class="side-panel right-panel">
+          <div class="panel-label">MISSION CONTROL / 操作说明</div>
+          <div class="control-card">
+            <div class="control-title">MOVE / 移动</div>
+            <div class="keypad" aria-label="移动按键">
+              <kbd>W</kbd>
+              <kbd class="empty"></kbd>
+              <kbd class="empty"></kbd>
+              <kbd>A</kbd>
+              <kbd>S</kbd>
+              <kbd>D</kbd>
+            </div>
+            <p>W A S D 或方向键<br />Arrow keys also supported</p>
+          </div>
+          <div class="control-card shortcut-card">
+            <div class="control-title">SHORTCUTS / 快捷键</div>
+            <div class="shortcut-line"><kbd>SPACE</kbd><span>暂停 / Pause</span></div>
+            <div class="shortcut-line"><kbd>R</kbd><span>重新开始 / Restart</span></div>
+          </div>
+          <div class="control-card rules-card">
+            <div class="control-title">RULES / 规则</div>
+            <ul>
+              <li><span class="dot food-dot"></span>吃掉食物获得分数</li>
+              <li><span class="dot wall-dot"></span>避开障碍物与自己</li>
+              <li><span class="dot boost-dot"></span>金色食物可加速得分</li>
+            </ul>
+          </div>
+          <div class="credits">A TINY ARCADE PROJECT<br /><span>MADE FOR THE WEB</span></div>
+        </aside>
+      </section>
+
+      <footer class="footer-note">© 2026 PIXEL SNAKE <span>·</span> PLAY SMART. STAY PIXEL.</footer>
+    </main>
+  </body>
+</html>
